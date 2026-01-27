@@ -1,6 +1,6 @@
 :root {
   --green: #3F6C51;   /* letra no lugar correto / letra boa no teclado */
-  --purple: #D56C34;  /* letra existe mas posição errada */
+  --purple: #573261;  /* letra existe mas posição errada */
   --red: #A23E48;     /* letra usada e errada no teclado */
 
   --glass-bg: rgba(255, 255, 255, 0.14);
@@ -127,7 +127,7 @@ button.secondary {
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* TECLADO — em mobile, flex-wrap funciona muito melhor que grid fixo */
+/* TECLADO — flex-wrap responsivo */
 .keyboard {
   margin-top: clamp(10px, 2.6vw, 14px);
   display: flex;
@@ -136,13 +136,18 @@ button.secondary {
   gap: clamp(6px, 1.8vw, 8px);
 }
 
-/* teclas: tamanho confortável no celular e não fica gigante no desktop */
+/* teclas quadradas (sem radius), letra centralizada */
 .key {
-  flex: 0 1 calc(10% - 8px); /* tende a ~10 por linha */
+  flex: 0 1 calc(10% - 8px);
   min-width: clamp(30px, 8.2vw, 48px);
   height: clamp(40px, 10vw, 46px);
 
-  border-radius: 12px;
+  border-radius: 0;        /* quadrado */
+  display: grid;
+  place-items: center;     /* centraliza perfeito */
+  padding: 0;
+  line-height: 1;
+
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255, 255, 255, 0.22);
   color: white;
@@ -153,12 +158,13 @@ button.secondary {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* teclas especiais (⌫ e →) ficam maiores e mais fáceis de tocar */
+/* teclas especiais (⌫ e →) maiores, também quadradas */
 .key:last-child,
 .key:nth-last-child(2) {
   flex-basis: calc(20% - 8px);
   min-width: clamp(70px, 18vw, 120px);
   font-weight: 900;
+  border-radius: 0;
 }
 
 .key.used-wrong {
@@ -178,19 +184,17 @@ button.secondary {
   pointer-events: none;
 }
 
-/* Melhorias em telas maiores: mais respiro e layout mais “premium” */
+/* Melhorias em telas maiores */
 @media (min-width: 720px) {
   .container {
     width: min(86vw, 720px);
     max-width: 720px;
   }
 
-  /* aumenta levemente o grid para desktop */
   .cell {
     font-size: clamp(18px, 2.2vw, 24px);
   }
 
-  /* teclado fica mais proporcional */
   .key {
     min-width: 44px;
     height: 46px;
