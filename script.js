@@ -8,7 +8,8 @@ const grid = document.getElementById("grid");
 const message = document.getElementById("message");
 const keyboard = document.getElementById("keyboard");
 
-const letters = "QWERTYUIOPASDFGHJKLZXCVBNM".split("");
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
 
 async function loadDictionary() {
   const res = await fetch("palavras.dic");
@@ -285,3 +286,4 @@ document.getElementById("confirmBtn").onclick = checkGuess;
 document.getElementById("newWordBtn").onclick = newGame;
 
 loadDictionary();
+
