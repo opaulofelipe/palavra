@@ -287,33 +287,39 @@ document.getElementById("newWordBtn").onclick = newGame;
 
 loadDictionary();
 
-// --- BLOQUEIO DE ZOOM (iOS/Android) ---
+// ====== ANTI-ZOOM (iOS Safari/Chrome) ======
+
+// Bloqueia pinch (2+ dedos) já no touchstart (mais efetivo no iOS)
 document.addEventListener(
-  "touchmove",
+  "touchstart",
   (e) => {
-    if (e.scale && e.scale !== 1) e.preventDefault();
+    if (e.touches && e.touches.length > 1) e.preventDefault();
   },
   { passive: false }
 );
 
-// bloqueia double-tap zoom (iOS Safari)
+// Bloqueia pinch durante o movimento
+document.addEventListener(
+  "touchmove",
+  (e) => {
+    if (e.touches && e.touches.length > 1) e.preventDefault();
+  },
+  { passive: false }
+);
+
+// Bloqueia double-tap zoom (iOS)
 let lastTouchEnd = 0;
 document.addEventListener(
   "touchend",
   (e) => {
     const now = Date.now();
-    if (now - lastTouchEnd <= 300) {
-      e.preventDefault();
-    }
+    if (now - lastTouchEnd <= 300) e.preventDefault();
     lastTouchEnd = now;
   },
   { passive: false }
 );
 
-// bloqueia gesture zoom (iOS)
-document.addEventListener("gesturestart", (e) => e.preventDefault());
-document.addEventListener("gesturechange", (e) => e.preventDefault());
-document.addEventListener("gestureend", (e) => e.preventDefault());
-
-
-
+// Eventos específicos do Safari (nem sempre disparam, mas ajuda)
+document.addEventListener("gesturestart", (e) => e.preventDefault(), { passive: false });
+document.addEventListener("gesturechange", (e) => e.preventDefault(), { passive: false });
+document.addEventListener("gestureend", (e) => e.preventDefault(), { passive: false });
