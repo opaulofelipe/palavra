@@ -32,7 +32,7 @@ body {
   width: min(94vw, 560px);
   padding: clamp(14px, 3.2vw, 26px);
   text-align: center;
-  border-radius: 22px;
+  border-radius: 0px;
 }
 
 .glass {
@@ -67,7 +67,7 @@ h1 {
 .cell {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 8px; /* leve, bonito no iOS */
+  border-radius: 0px; /* leve, bonito no iOS */
   border: 1px solid var(--border);
   display: grid;
   place-items: center;
@@ -201,3 +201,4 @@ button.secondary {
     font-size: 15px;
   }
 }
+
