@@ -1,0 +1,141 @@
+:root {
+  --green: #3F6C51;   /* letra no lugar correto / letra boa no teclado */
+  --purple: #D56C34;  /* letra existe mas posição errada */
+  --red: #A23E48;     /* letra usada e errada no teclado */
+
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --border: rgba(255, 255, 255, 0.3);
+  --text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  text-align: center;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 6px; /* radius leve */
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  user-select: none;
+}
+
+.cell.active {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.correct {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.present {
+  background: var(--purple);
+  color: #ffffff;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.key {
+  padding: 10px 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.key.used-wrong {
+  background: var(--red);
+  color: #ffffff;
+}
+
+.key.used-good {
+  background: var(--green);
+  color: #ffffff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button.secondary {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#message {
+  min-height: 20px;
+  font-size: 0.95rem;
+  margin: 6px 0 2px;
+}
