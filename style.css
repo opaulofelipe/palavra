@@ -1,6 +1,6 @@
 :root {
   --green: #3F6C51;   /* letra no lugar correto / letra boa no teclado */
-  --purple: #573261;  /* letra existe mas posição errada */
+  --purple: #FF7444;  /* letra existe mas posição errada */
   --red: #A23E48;     /* letra usada e errada no teclado */
 
   --glass-bg: rgba(255, 255, 255, 0.14);
@@ -206,6 +206,7 @@ html, body {
   touch-action: manipulation; /* ajuda em alguns browsers */
   -webkit-text-size-adjust: 100%; /* evita “zoom” por ajuste de texto */
 }
+
 
 
 
