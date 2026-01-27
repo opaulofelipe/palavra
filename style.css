@@ -202,3 +202,10 @@ button.secondary {
   }
 }
 
+html, body {
+  touch-action: manipulation; /* ajuda em alguns browsers */
+  -webkit-text-size-adjust: 100%; /* evita “zoom” por ajuste de texto */
+}
+
+
+
