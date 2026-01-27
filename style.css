@@ -108,7 +108,7 @@ h1 {
 button {
   width: 100%;
   padding: clamp(11px, 2.8vw, 13px);
-  border-radius: 14px;
+  border-radius: 0px;
   border: 1px solid rgba(255,255,255,0.18);
   background: rgba(255, 255, 255, 0.22);
   color: white;
@@ -206,6 +206,7 @@ html, body {
   touch-action: manipulation; /* ajuda em alguns browsers */
   -webkit-text-size-adjust: 100%; /* evita “zoom” por ajuste de texto */
 }
+
 
 
 
